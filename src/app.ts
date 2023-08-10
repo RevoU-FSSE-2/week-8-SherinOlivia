@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Express, Request, Response } from 'express';
 import dotenv from "dotenv";
 import { finances } from "./data";
 import bodyParser from "body-parser";
