@@ -11,6 +11,10 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 app.use(body_parser_1.default.json());
+// get all
+app.get("/", (req, res) => {
+    res.send("Hello, this is Sherin Olivia's Assignment for Week 8");
+});
 // get all finances data
 app.get('/finances', (req, res) => {
     res.status(200).json({
