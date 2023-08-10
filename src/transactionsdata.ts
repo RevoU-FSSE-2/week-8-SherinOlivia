@@ -1,4 +1,4 @@
-interface Ifinance {
+export interface Itransaction {
     id: number,
     transactionType: string,
     transactionName: string,
@@ -7,7 +7,7 @@ interface Ifinance {
 
 }
 
-export let finances:Ifinance[] = [
+export let transactions:Itransaction[] = [
     {
         id:1, 
         transactionType:"Cash In", 

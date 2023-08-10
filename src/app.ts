@@ -1,58 +1,34 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import dotenv from "dotenv";
-import { finances } from "./data";
+import transactionsRouter from "./router/transactionrouter";
+import mainRouter from './router/mainrouter';
 import bodyParser from "body-parser";
 
 dotenv.config();
 
-const app: Express = express()
+// secret access token
+const accessTokenSecret = process.env.SECRETTOKEN || "";
+
+const app: Express = express();
 const port = process.env.PORT;
 
+
+// middleware
+const logRequest = (req: Request, res: Response, next: NextFunction) => {
+  console.log(`Request method: ${req.method} and ${req.url}`);
+  next();
+}
+
+
+// app.use
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(logRequest);
 
-// get all
-app.get("/", (req, res) => {
-  res.send("Hello, this is Sherin Olivia's Assignment for Week 8");
-});
+// Router
+app.use('/', mainRouter)
+app.use('/transactions', transactionsRouter)
 
-// get all finances data
-app.get('/finances', (req: Request, res: Response) => {
-  res.status(200).json({
-    message: "Successfully 'get' all finances data",
-    data: finances,
-  })
-})
-
-//   get finances data by id
-app.get('/finances/:id', (req, res) => {
-  const finance = finances.filter((item) => { 
-      return item.id === parseInt(req.params.id);
-  })
-
-  if (finance.length != 0) {
-      res.json({
-          message: "Succesfully get finance data by id",
-          finance,
-      });
-
-  } else {
-      res.json({
-          message: "Failed to get finance data by id",
-          finance,
-      });
-  }
-
-});
-
-//  Post
-app.post('/finances', (req, res) => {
-  finances.push(req.body);
-
-  res.json({
-      message: "Successfully post new finance data",
-      finances
-  })
-})
 
 // // put
 // app.put("/", (req, res) => {

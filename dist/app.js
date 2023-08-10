@@ -5,49 +5,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const data_1 = require("./data");
+const transactionrouter_1 = __importDefault(require("./router/transactionrouter"));
+const mainrouter_1 = __importDefault(require("./router/mainrouter"));
 const body_parser_1 = __importDefault(require("body-parser"));
 dotenv_1.default.config();
+// secret access token
+const accessTokenSecret = process.env.SECRETTOKEN || "";
 const app = (0, express_1.default)();
 const port = process.env.PORT;
+// middleware
+const logRequest = (req, res, next) => {
+    console.log(`Request method: ${req.method} and ${req.url}`);
+    next();
+};
+// app.use
 app.use(body_parser_1.default.json());
-// get all
-app.get("/", (req, res) => {
-    res.send("Hello, this is Sherin Olivia's Assignment for Week 8");
-});
-// get all finances data
-app.get('/finances', (req, res) => {
-    res.status(200).json({
-        message: "Successfully 'get' all finances data",
-        data: data_1.finances,
-    });
-});
-//   get finances data by id
-app.get('/finances/:id', (req, res) => {
-    const finance = data_1.finances.filter((item) => {
-        return item.id === parseInt(req.params.id);
-    });
-    if (finance.length != 0) {
-        res.json({
-            message: "Succesfully get finance data by id",
-            finance,
-        });
-    }
-    else {
-        res.json({
-            message: "Failed to get finance data by id",
-            finance,
-        });
-    }
-});
-//  Post
-app.post('/finances', (req, res) => {
-    data_1.finances.push(req.body);
-    res.json({
-        message: "Successfully post new finance data",
-        finances: data_1.finances
-    });
-});
+app.use(express_1.default.json());
+app.use(logRequest);
+// Router
+app.use('/', mainrouter_1.default);
+app.use('/transactions', transactionrouter_1.default);
 // // put
 // app.put("/", (req, res) => {
 //   res.send("trryyyy put");
