@@ -4,7 +4,7 @@
   "description": "RevoU FSSE Week 8's Assignment - Backend",
   "main": "app.js",
   "scripts": {
-    "start": "npx tsc",
+    "start": "tsc",
     "build": "rm -rf dist/ && tsc",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon dist/app.js\""
   },
