@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { transactions, Itransaction } from "../transactionsdata";
+import { transactions, Itransaction } from "../data/transactionsdata";
 // import { Interface } from 'readline';
 
 const router = express.Router();
@@ -58,6 +58,10 @@ export const updateTransactionData = (req: Request, res: Response) => {
     const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
     const transIndex = transactions.findIndex(transaction => transaction.id === transId);
 
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
+
     if (transId !== undefined && transactionType !== undefined && transactionName !== undefined && transactionDetail !== undefined &&  transactionAmount !== undefined) {
         transactions[transIndex].id = transId;
         transactions[transIndex].transactionType = transactionType;
@@ -74,9 +78,61 @@ export const updateTransactionData = (req: Request, res: Response) => {
     });
 };
 
+// function to update partial transaction data (patch)
+export const updatePartialData = (req: Request, res: Response) => {
+    const transId = parseInt(req.params.id);
+    const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
 
+    const transIndex = transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    } 
 
+    if (transactionType !== undefined) {
+        transactions[transIndex].transactionType = transactionType;
+    } else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
 
+    res.json({
+        message: "Successfully updated transaction type",
+        data: transactions[transIndex]
+    });
+
+    if (transactionName !== undefined) {
+        transactions[transIndex].transactionName = transactionName;
+    } else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+
+    res.json({
+        message: "Successfully updated transaction name",
+        data: transactions[transIndex]
+    });
+
+    if (transactionDetail !== undefined) {
+        transactions[transIndex].transactionDetail = transactionDetail;
+    } else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+
+    res.json({
+        message: "Successfully updated transaction detail",
+        data: transactions[transIndex]
+    });
+
+    if (transactionAmount !== undefined) {
+        transactions[transIndex].transactionAmount = transactionAmount;
+    } else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+
+    res.json({
+        message: "Successfully updated transaction amount",
+        data: transactions[transIndex]
+    });
+
+}
 
 
   export { router };

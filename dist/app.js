@@ -12,7 +12,7 @@ dotenv_1.default.config();
 // secret access token
 const accessTokenSecret = process.env.SECRETTOKEN || "";
 const app = (0, express_1.default)();
-const port = process.env.PORT;
+const port = process.env.PORT || 8888;
 // middleware
 const logRequest = (req, res, next) => {
     console.log(`Request method: ${req.method} and ${req.url}`);

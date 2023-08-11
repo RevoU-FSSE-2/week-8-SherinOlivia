@@ -12,4 +12,8 @@ router.get("/", controller_1.getAllTransactionData);
 router.get("/:id", controller_1.getTransactionDataByID);
 //  Post new transaction data
 router.post("/", controller_1.postNewTransactionData);
+//  Update whole transaction data (Put)
+router.put("/:id", controller_1.updateTransactionData);
+//  Update partial transaction data (patch)
+router.patch("/:id", controller_1.updatePartialData);
 exports.default = router;

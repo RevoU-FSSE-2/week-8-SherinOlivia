@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.router = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
+exports.router = exports.updatePartialData = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
 const express_1 = __importDefault(require("express"));
-const transactionsdata_1 = require("../transactionsdata");
+const transactionsdata_1 = require("../data/transactionsdata");
 // import { Interface } from 'readline';
 const router = express_1.default.Router();
 exports.router = router;
@@ -58,7 +58,10 @@ exports.postNewTransactionData = postNewTransactionData;
 const updateTransactionData = (req, res) => {
     const transId = parseInt(req.params.id);
     const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
-    const transIndex = transactionsdata_1.transactions.findIndex(transactions => transactions.id === transId);
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
     if (transId !== undefined && transactionType !== undefined && transactionName !== undefined && transactionDetail !== undefined && transactionAmount !== undefined) {
         transactionsdata_1.transactions[transIndex].id = transId;
         transactionsdata_1.transactions[transIndex].transactionType = transactionType;
@@ -71,7 +74,57 @@ const updateTransactionData = (req, res) => {
     }
     res.json({
         message: "Successfully updated transaction data",
-        transactions: transactionsdata_1.transactions,
+        data: transactionsdata_1.transactions[transIndex]
     });
 };
 exports.updateTransactionData = updateTransactionData;
+// function to update partial transaction data (patch)
+const updatePartialData = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
+    if (transactionType !== undefined) {
+        transactionsdata_1.transactions[transIndex].transactionType = transactionType;
+    }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction type",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+    if (transactionName !== undefined) {
+        transactionsdata_1.transactions[transIndex].transactionName = transactionName;
+    }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction name",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+    if (transactionDetail !== undefined) {
+        transactionsdata_1.transactions[transIndex].transactionDetail = transactionDetail;
+    }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction detail",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+    if (transactionAmount !== undefined) {
+        transactionsdata_1.transactions[transIndex].transactionAmount = transactionAmount;
+    }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction amount",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+};
+exports.updatePartialData = updatePartialData;
