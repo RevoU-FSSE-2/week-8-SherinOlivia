@@ -10,7 +10,7 @@ dotenv.config();
 const accessTokenSecret = process.env.SECRETTOKEN || "";
 
 const app: Express = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8888;
 
 
 // middleware

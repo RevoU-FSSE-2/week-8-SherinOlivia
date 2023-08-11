@@ -70,7 +70,7 @@ export const updateTransactionData = (req: Request, res: Response) => {
 
     res.json({
         message: "Successfully updated transaction data",
-        transactions,
+        data: transactions[transIndex]
     });
 };
 
