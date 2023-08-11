@@ -90,47 +90,59 @@ export const updatePartialData = (req: Request, res: Response) => {
 
     if (transactionType !== undefined) {
         transactions[transIndex].transactionType = transactionType;
-    } else {
-        return res.status(400).json({ message: 'Data Update Failed' });
-    }
-
-    res.json({
-        message: "Successfully updated transaction type",
-        data: transactions[transIndex]
-    });
-
-    if (transactionName !== undefined) {
+    } if (transactionName !== undefined) {
         transactions[transIndex].transactionName = transactionName;
-    } else {
-        return res.status(400).json({ message: 'Data Update Failed' });
-    }
-
-    res.json({
-        message: "Successfully updated transaction name",
-        data: transactions[transIndex]
-    });
-
-    if (transactionDetail !== undefined) {
+    } if (transactionDetail !== undefined) {
         transactions[transIndex].transactionDetail = transactionDetail;
-    } else {
-        return res.status(400).json({ message: 'Data Update Failed' });
-    }
-
-    res.json({
-        message: "Successfully updated transaction detail",
-        data: transactions[transIndex]
-    });
-
-    if (transactionAmount !== undefined) {
+    } if (transactionAmount !== undefined) {
         transactions[transIndex].transactionAmount = transactionAmount;
     } else {
         return res.status(400).json({ message: 'Data Update Failed' });
     }
 
-    res.json({
-        message: "Successfully updated transaction amount",
-        data: transactions[transIndex]
-    });
+    // if (transactionType !== undefined) {
+    //     transactions[transIndex].transactionType = transactionType;
+    // } else {
+    //     return res.status(400).json({ message: 'Data Update Failed' });
+    // }
+
+    // res.json({
+    //     message: "Successfully updated transaction type",
+    //     data: transactions[transIndex]
+    // });
+
+    // if (transactionName !== undefined) {
+    //     transactions[transIndex].transactionName = transactionName;
+    // } else {
+    //     return res.status(400).json({ message: 'Data Update Failed' });
+    // }
+
+    // res.json({
+    //     message: "Successfully updated transaction name",
+    //     data: transactions[transIndex]
+    // });
+
+    // if (transactionDetail !== undefined) {
+    //     transactions[transIndex].transactionDetail = transactionDetail;
+    // } else {
+    //     return res.status(400).json({ message: 'Data Update Failed' });
+    // }
+
+    // res.json({
+    //     message: "Successfully updated transaction detail",
+    //     data: transactions[transIndex]
+    // });
+
+    // if (transactionAmount !== undefined) {
+    //     transactions[transIndex].transactionAmount = transactionAmount;
+    // } else {
+    //     return res.status(400).json({ message: 'Data Update Failed' });
+    // }
+
+    // res.json({
+    //     message: "Successfully updated transaction amount",
+    //     data: transactions[transIndex]
+    // });
 
 }
 
