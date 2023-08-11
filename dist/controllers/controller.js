@@ -19,20 +19,20 @@ const getAllTransactionData = (req, res) => {
 exports.getAllTransactionData = getAllTransactionData;
 // function to get finance data by id
 const getTransactionDataByID = (req, res) => {
-    const transaction = transactionsdata_1.transactions.filter((item) => {
-        return item.id === parseInt(req.params.id);
-    });
-    if (transaction.length != 0) {
-        res.json({
-            message: "Succesfully get finance data by id",
-            transactions: transactionsdata_1.transactions,
-        });
-    }
-    else {
-        res.json({
-            message: "Failed to get finance data by id",
-            transactions: transactionsdata_1.transactions,
-        });
+    const transId = parseInt(req.params.id);
+    if (!Number.isNaN(transId)) {
+        let transaction = transactionsdata_1.transactions.filter((item) => item.id === transId);
+        if (transaction.length != 0) {
+            res.json({
+                message: "Succesfully get finance data by id",
+                transaction,
+            });
+        }
+        else {
+            res.json({
+                message: "Failed to get finance data by id",
+            });
+        }
     }
 };
 exports.getTransactionDataByID = getTransactionDataByID;
