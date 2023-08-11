@@ -36,19 +36,19 @@ functionalities.</p>
 **Postman** 
 : an API platform for building and using APIs
 
-![postman-download](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-download.webp?token=GHSAT0AAAAAACDKQZ7GH4NM2WIJS5VHTU4GZGWRZ5Q)
+![postman-download](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-download.webp)
 
 1. To download postman, head to [**postman.com**](https://www.postman.com/downloads/)
 
-![postman-overview](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-overview.webp?token=GHSAT0AAAAAACDKQZ7G4LSQB3MBRL7T4TN2ZGWR25Q)
+![postman-overview](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-overview.webp)
 
 <p>Although we don't have to create an account for Postman, creating one will allow us to access workspace, a space on the side where we can create our API requests.</p>
 
-![postman-createaccount](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-login.webp?token=GHSAT0AAAAAACDKQZ7GVYF4YA2QQKMBEFUMZGWR2GA)
+![postman-createaccount](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-login.webp)
 
 2. An example of neat workspace
 
-![postman-workspace](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-workspace.webp?token=GHSAT0AAAAAACDKQZ7GILLZHSPQJWZZFIRCZGWR4DA)
+![postman-workspace](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-workspace.webp)
 
 **Thunder Client** 
 : a lightweight GUI based Rest API Client Extension for Visual Studio Code
@@ -61,15 +61,15 @@ functionalities.</p>
 : a Platform as a Service (PaaS) that offers a complete platform for building and delivering programs to the backend of the cloud. Which means <strong>Railway</strong> is one of the many options where we can deploy our back-end codes.
 
 1. First, head to [**railway.app**](https://railway.app/), and click login with github account.
-- ![railway-web](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-website.webp?token=GHSAT0AAAAAACDKQZ7HR6R4GCLCA5SCEJ6AZGWR6XA)
-- ![railway-login](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-login.webp?token=GHSAT0AAAAAACDKQZ7GA5MMJS7YLTLWMWQGZGWR54Q)
+- ![railway-web](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-website.webp)
+- ![railway-login](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-login.webp)
 
 2. Click New Project and the github repository that houses your backend sourcecode
-![railway-newproject](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-newproject.webp?token=GHSAT0AAAAAACDKQZ7HDUVMKIKTDCDBNWQCZGWR6LQ)
-![railway-projectrepo](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-projectrepo.webp?token=GHSAT0AAAAAACDKQZ7HP3SLC3D6SKVJOC32ZGWR6NA)
+![railway-newproject](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-newproject.webp)
+![railway-projectrepo](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-projectrepo.webp)
 
 3. Railway will proceed to start building and deploying your project, when completed, you may set the web
-![railway-domainname](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-domainname.webp?token=GHSAT0AAAAAACDKQZ7GJ7O7SKY4BWKXTN6GZGWR53A)
+![railway-domainname](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-domainname.webp)
 
 4. Your project is ready for use.
 ### Contact Me:
