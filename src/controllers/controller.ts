@@ -31,7 +31,7 @@ export const getTransactionDataByID = (req: Request, res: Response) => {
         }}
     }
 
-//  function to post new finance data
+//  function to post new Transaction data
 export const postNewTransactionData = (req: Request, res: Response) => {
     const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
     const NewTransactionID: number = transactions.length + 1;
@@ -165,9 +165,24 @@ export const updatetransAmount = (req: Request, res: Response) => {
         message: "Successfully updated transaction amount",
         data: transactions[transIndex]
     });
-
 }
 
+// function to update transaction type (patch)
+export var deleteTransData = (req: Request, res: Response) => {
+    const transId = parseInt(req.params.id);
 
+    const transIndex = transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    } 
+
+    const deleteTransData = transactions.splice(transIndex, 1);
+
+    res.json({
+        message: "Successfully deleted transaction amount",
+        "Deleted Data": deleteTransData
+    });
+
+}
 
   export { router };

@@ -15,11 +15,13 @@ router.post("/", controller_1.postNewTransactionData);
 //  Update whole transaction data (Put)
 router.put("/:id", controller_1.updateTransactionData);
 //  Update partial transaction data (patch) : Transaction Type
-router.patch("/:id", controller_1.updatetransType);
+router.patch("/ttype/:id", controller_1.updatetransType);
 //  Update partial transaction data (patch) : Transaction Name
-router.patch("/:id", controller_1.updatetransName);
+router.patch("/tname/:id", controller_1.updatetransName);
 //  Update partial transaction data (patch) : Transaction Detail
-router.patch("/:id", controller_1.updatetransDetail);
+router.patch("/tdetail/:id", controller_1.updatetransDetail);
 //  Update partial transaction data (patch) : Transaction Amount
-router.patch("/amount/:id", controller_1.updatetransAmount);
+router.patch("/tamount/:id", controller_1.updatetransAmount);
+// Delete transactio ndata
+router.delete("/:id", controller_1.deleteTransData);
 exports.default = router;

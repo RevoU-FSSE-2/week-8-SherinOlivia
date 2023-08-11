@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.router = exports.updatetransAmount = exports.updatetransDetail = exports.updatetransName = exports.updatetransType = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
+exports.router = exports.deleteTransData = exports.updatetransAmount = exports.updatetransDetail = exports.updatetransName = exports.updatetransType = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
 const express_1 = __importDefault(require("express"));
 const transactionsdata_1 = require("../data/transactionsdata");
 // import { Interface } from 'readline';
@@ -36,7 +36,7 @@ const getTransactionDataByID = (req, res) => {
     }
 };
 exports.getTransactionDataByID = getTransactionDataByID;
-//  function to post new finance data
+//  function to post new Transaction data
 const postNewTransactionData = (req, res) => {
     const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
     const NewTransactionID = transactionsdata_1.transactions.length + 1;
@@ -158,3 +158,17 @@ const updatetransAmount = (req, res) => {
     });
 };
 exports.updatetransAmount = updatetransAmount;
+// function to update transaction type (patch)
+var deleteTransData = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
+    const deleteTransData = transactionsdata_1.transactions.splice(transIndex, 1);
+    res.json({
+        message: "Successfully deleted transaction amount",
+        "Deleted Data": deleteTransData
+    });
+};
+exports.deleteTransData = deleteTransData;
