@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllTransactionData, getTransactionDataByID, postNewTransactionData, updateTransactionData, updatePartialData } from "../controllers/controller";
+import { getAllTransactionData, getTransactionDataByID, postNewTransactionData, updateTransactionData, updatetransType, updatetransName, updatetransDetail, updatetransAmount } from "../controllers/controller";
 
 const router = express.Router();
 
@@ -11,7 +11,15 @@ router.get("/:id", getTransactionDataByID);
 router.post("/", postNewTransactionData);
 //  Update whole transaction data (Put)
 router.put("/:id", updateTransactionData);
-//  Update partial transaction data (patch)
-router.patch("/:id", updatePartialData);
+//  Update partial transaction data (patch) : Transaction Type
+router.patch("/:id", updatetransType);
+//  Update partial transaction data (patch) : Transaction Name
+router.patch("/:id", updatetransName);
+//  Update partial transaction data (patch) : Transaction Detail
+router.patch("/:id", updatetransDetail);
+//  Update partial transaction data (patch) : Transaction Amount
+router.patch("/:id", updatetransAmount);
+
+
 
 export default router;

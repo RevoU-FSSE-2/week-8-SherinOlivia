@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.router = exports.updatePartialData = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
+exports.router = exports.updatetransAmount = exports.updatetransDetail = exports.updatetransName = exports.updatetransType = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
 const express_1 = __importDefault(require("express"));
 const transactionsdata_1 = require("../data/transactionsdata");
 // import { Interface } from 'readline';
@@ -78,10 +78,10 @@ const updateTransactionData = (req, res) => {
     });
 };
 exports.updateTransactionData = updateTransactionData;
-// function to update partial transaction data (patch)
-const updatePartialData = (req, res) => {
+// function to update transaction type (patch)
+const updatetransType = (req, res) => {
     const transId = parseInt(req.params.id);
-    const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
+    const { transactionType } = req.body;
     const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
@@ -89,11 +89,62 @@ const updatePartialData = (req, res) => {
     if (transactionType !== undefined) {
         transactionsdata_1.transactions[transIndex].transactionType = transactionType;
     }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction type",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+};
+exports.updatetransType = updatetransType;
+// function to update transaction name (patch)
+const updatetransName = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const { transactionName } = req.body;
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
     if (transactionName !== undefined) {
         transactionsdata_1.transactions[transIndex].transactionName = transactionName;
     }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction name",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+};
+exports.updatetransName = updatetransName;
+// function to update transaction detail (patch)
+const updatetransDetail = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const { transactionDetail } = req.body;
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
+    }
     if (transactionDetail !== undefined) {
         transactionsdata_1.transactions[transIndex].transactionDetail = transactionDetail;
+    }
+    else {
+        return res.status(400).json({ message: 'Data Update Failed' });
+    }
+    res.json({
+        message: "Successfully updated transaction detail",
+        data: transactionsdata_1.transactions[transIndex]
+    });
+};
+exports.updatetransDetail = updatetransDetail;
+// function to update transaction detail (patch)
+const updatetransAmount = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const { transactionAmount } = req.body;
+    const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
+    if (transIndex === -1) {
+        return res.status(404).json({ message: 'Data is not found' });
     }
     if (transactionAmount !== undefined) {
         transactionsdata_1.transactions[transIndex].transactionAmount = transactionAmount;
@@ -101,41 +152,9 @@ const updatePartialData = (req, res) => {
     else {
         return res.status(400).json({ message: 'Data Update Failed' });
     }
-    // if (transactionType !== undefined) {
-    //     transactions[transIndex].transactionType = transactionType;
-    // } else {
-    //     return res.status(400).json({ message: 'Data Update Failed' });
-    // }
-    // res.json({
-    //     message: "Successfully updated transaction type",
-    //     data: transactions[transIndex]
-    // });
-    // if (transactionName !== undefined) {
-    //     transactions[transIndex].transactionName = transactionName;
-    // } else {
-    //     return res.status(400).json({ message: 'Data Update Failed' });
-    // }
-    // res.json({
-    //     message: "Successfully updated transaction name",
-    //     data: transactions[transIndex]
-    // });
-    // if (transactionDetail !== undefined) {
-    //     transactions[transIndex].transactionDetail = transactionDetail;
-    // } else {
-    //     return res.status(400).json({ message: 'Data Update Failed' });
-    // }
-    // res.json({
-    //     message: "Successfully updated transaction detail",
-    //     data: transactions[transIndex]
-    // });
-    // if (transactionAmount !== undefined) {
-    //     transactions[transIndex].transactionAmount = transactionAmount;
-    // } else {
-    //     return res.status(400).json({ message: 'Data Update Failed' });
-    // }
-    // res.json({
-    //     message: "Successfully updated transaction amount",
-    //     data: transactions[transIndex]
-    // });
+    res.json({
+        message: "Successfully updated transaction amount",
+        data: transactionsdata_1.transactions[transIndex]
+    });
 };
-exports.updatePartialData = updatePartialData;
+exports.updatetransAmount = updatetransAmount;
