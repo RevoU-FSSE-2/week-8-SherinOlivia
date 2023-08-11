@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.router = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
+exports.router = exports.updateTransactionData = exports.postNewTransactionData = exports.getTransactionDataByID = exports.getAllTransactionData = void 0;
 const express_1 = __importDefault(require("express"));
 const transactionsdata_1 = require("../transactionsdata");
 // import { Interface } from 'readline';
@@ -30,7 +30,7 @@ const getTransactionDataByID = (req, res) => {
         }
         else {
             res.json({
-                message: "Failed to get finance data by id",
+                message: "Failed to get finance data by id / requested id may not be available",
             });
         }
     }
@@ -54,3 +54,24 @@ const postNewTransactionData = (req, res) => {
     });
 };
 exports.postNewTransactionData = postNewTransactionData;
+// function to update transaction data (put)
+const updateTransactionData = (req, res) => {
+    const transId = parseInt(req.params.id);
+    const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
+    const transIndex = transactionsdata_1.transactions.findIndex(transactions => transactions.id === transId);
+    if (transId !== undefined && transactionType !== undefined && transactionName !== undefined && transactionDetail !== undefined && transactionAmount !== undefined) {
+        transactionsdata_1.transactions[transIndex].id = transId;
+        transactionsdata_1.transactions[transIndex].transactionType = transactionType;
+        transactionsdata_1.transactions[transIndex].transactionName = transactionName;
+        transactionsdata_1.transactions[transIndex].transactionDetail = transactionDetail;
+        transactionsdata_1.transactions[transIndex].transactionAmount = transactionAmount;
+    }
+    else {
+        return res.status(400).json({ message: 'Data is Invalid' });
+    }
+    res.json({
+        message: "Successfully updated transaction data",
+        transactions: transactionsdata_1.transactions,
+    });
+};
+exports.updateTransactionData = updateTransactionData;
