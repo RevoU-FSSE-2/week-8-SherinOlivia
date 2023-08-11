@@ -56,7 +56,7 @@ export const postNewTransactionData = (req: Request, res: Response) => {
 export const updateTransactionData = (req: Request, res: Response) => {
     const transId = parseInt(req.params.id);
     const { transactionType, transactionName, transactionDetail, transactionAmount } = req.body;
-    const transIndex = transactions.findIndex(transactions => transactions.id === transId);
+    const transIndex = transactions.findIndex(transaction => transaction.id === transId);
 
     if (transId !== undefined && transactionType !== undefined && transactionName !== undefined && transactionDetail !== undefined &&  transactionAmount !== undefined) {
         transactions[transIndex].id = transId;
