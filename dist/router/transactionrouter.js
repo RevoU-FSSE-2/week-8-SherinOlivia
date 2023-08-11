@@ -21,5 +21,5 @@ router.patch("/:id", controller_1.updatetransName);
 //  Update partial transaction data (patch) : Transaction Detail
 router.patch("/:id", controller_1.updatetransDetail);
 //  Update partial transaction data (patch) : Transaction Amount
-router.patch("/:id", controller_1.updatetransAmount);
+router.patch("/amount/:id", controller_1.updatetransAmount);
 exports.default = router;

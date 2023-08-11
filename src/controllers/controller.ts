@@ -81,7 +81,7 @@ export const updateTransactionData = (req: Request, res: Response) => {
 // function to update transaction type (patch)
 export const updatetransType = (req: Request, res: Response) => {
     const transId = parseInt(req.params.id);
-    const { transactionType } = req.body;
+    const transactionType = req.body.transactionType;
 
     const transIndex = transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
@@ -103,13 +103,14 @@ export const updatetransType = (req: Request, res: Response) => {
 // function to update transaction name (patch)
 export const updatetransName = (req: Request, res: Response) => {
     const transId = parseInt(req.params.id);
-    const { transactionName } = req.body;
+    const transactionName = req.body.transactionName;
 
     const transIndex = transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
     } 
 
+    
     if (transactionName !== undefined) {
         transactions[transIndex].transactionName = transactionName;
     } else {
@@ -125,7 +126,7 @@ export const updatetransName = (req: Request, res: Response) => {
 // function to update transaction detail (patch)
 export const updatetransDetail = (req: Request, res: Response) => {
     const transId = parseInt(req.params.id);
-    const { transactionDetail } = req.body;
+    const transactionDetail = req.body.transactionDetail;
 
     const transIndex = transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
@@ -147,7 +148,7 @@ export const updatetransDetail = (req: Request, res: Response) => {
 // function to update transaction detail (patch)
 export const updatetransAmount = (req: Request, res: Response) => {
     const transId = parseInt(req.params.id);
-    const { transactionAmount } = req.body;
+    const transactionAmount = req.body.transactionAmount;
 
     const transIndex = transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {

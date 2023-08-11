@@ -81,7 +81,7 @@ exports.updateTransactionData = updateTransactionData;
 // function to update transaction type (patch)
 const updatetransType = (req, res) => {
     const transId = parseInt(req.params.id);
-    const { transactionType } = req.body;
+    const transactionType = req.body.transactionType;
     const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
@@ -101,7 +101,7 @@ exports.updatetransType = updatetransType;
 // function to update transaction name (patch)
 const updatetransName = (req, res) => {
     const transId = parseInt(req.params.id);
-    const { transactionName } = req.body;
+    const transactionName = req.body.transactionName;
     const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
@@ -121,7 +121,7 @@ exports.updatetransName = updatetransName;
 // function to update transaction detail (patch)
 const updatetransDetail = (req, res) => {
     const transId = parseInt(req.params.id);
-    const { transactionDetail } = req.body;
+    const transactionDetail = req.body.transactionDetail;
     const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
@@ -141,7 +141,7 @@ exports.updatetransDetail = updatetransDetail;
 // function to update transaction detail (patch)
 const updatetransAmount = (req, res) => {
     const transId = parseInt(req.params.id);
-    const { transactionAmount } = req.body;
+    const transactionAmount = req.body.transactionAmount;
     const transIndex = transactionsdata_1.transactions.findIndex(transaction => transaction.id === transId);
     if (transIndex === -1) {
         return res.status(404).json({ message: 'Data is not found' });
