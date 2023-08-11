@@ -21,10 +21,10 @@ For Week 8's Assignment, we are to create a simple REST API Server using Express
 | **Get Transaction Data by ID** | `GET` | [/transactions/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
 | **Create New Transaction Data** | `POST` | [/transactions](https://roofinancetracker-prod.up.railway.app/transactions) |
 | **Update Whole Transaction Data by ID** | `PUT` | [/transactions/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
-| **Update Transaction Type by ID** | `PATCH` | [/transactions/ttype/:id](https://roofinancetracker-prod.up.railway.app/transactions/ttype/1) |
-| **Update Transaction Name by ID** | `PATCH` | [/transactions/tname/:id](https://roofinancetracker-prod.up.railway.app/transactions/tname/1) |
-| **Update Transaction Detail by ID** | `PATCH` | [/transactions/tdetail/:id](https://roofinancetracker-prod.up.railway.app/transactions/tdetail/1) |
-| **Update Transaction Amount by ID** | `PATCH` | [/transactions/tamount/:id](https://roofinancetracker-prod.up.railway.app/transactions/tamount/1) |
+| **Update Transaction Type by ID** | `PATCH` | [/transactions/ttype/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
+| **Update Transaction Name by ID** | `PATCH` | [/transactions/tname/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
+| **Update Transaction Detail by ID** | `PATCH` | [/transactions/tdetail/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
+| **Update Transaction Amount by ID** | `PATCH` | [/transactions/tamount/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
 | **Delete Transaction Data by ID** | `DELETE` | [/transactions/:id](https://roofinancetracker-prod.up.railway.app/transactions/1) |
 
 
