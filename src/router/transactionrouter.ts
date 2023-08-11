@@ -10,6 +10,6 @@ router.get("/:id", getTransactionDataByID);
 //  Post new transaction data
 router.post("/", postNewTransactionData);
 //  Update whole transaction data (Put)
-router.post("/", updateTransactionData);
+router.put("/", updateTransactionData);
 
 export default router;
