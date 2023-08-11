@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllTransactionData, getTransactionDataByID, postNewTransactionData } from "../controllers/controller";
+import { getAllTransactionData, getTransactionDataByID, postNewTransactionData, updateTransactionData } from "../controllers/controller";
 
 const router = express.Router();
 
@@ -9,6 +9,7 @@ router.get("/", getAllTransactionData);
 router.get("/:id", getTransactionDataByID);
 //  Post new transaction data
 router.post("/", postNewTransactionData);
-
+//  Update whole transaction data (Put)
+router.post("/", updateTransactionData);
 
 export default router;
