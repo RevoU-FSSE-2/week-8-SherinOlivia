@@ -8,6 +8,7 @@ For Week 8's Assignment, we are to create a simple REST API Server using Express
 - Create a package.json file that will be used to describe your app: `npm init -y`
 - Install all the needed dependencies (general): `npm i dotenv body-parser express ` 
 - Install all the needed dependencies for development side (DevDependencies): `npm i -D @types/dotenv @types/express @types/nodes concurrently nodemon typescript`
+- Include necessary steps in your script, such as: `"dev": "concurrently \"npx tsc --watch\" \"nodemon dist/app.js\"` (this particular script will allows you to run 2 commands simultaneously.To run the command, use: `npm run dev`)
 
 ## API Endpoints
 <p align="center">
@@ -44,7 +45,7 @@ functionalities.</p>
 
 ![postman-overview](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-overview.webp)
 
-<p>Although we don't have to create an account for Postman, creating one will allow us to access workspace, a space on the side where we can create our API requests.</p>
+<p>Although we don't have to create an account for Postman, creating one will allow us to access workspace, a sidebar space where we can create and store our API requests for easier and faster testing.</p>
 
 ![postman-createaccount](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/postman-login.webp)
 
@@ -70,7 +71,7 @@ functionalities.</p>
 ![railway-newproject](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-newproject.webp)
 ![railway-projectrepo](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-projectrepo.webp)
 
-3. Railway will proceed to start building and deploying your project, when completed, you may set the web
+3. Railway will proceed to start building and deploying your project, when completed, you may set the website name and or custom domain
 ![railway-domainname](https://raw.githubusercontent.com/RevoU-FSSE-2/week-8-SherinOlivia/main/readmeImgs/railway-domainname.webp)
 
 4. Your project is ready for use.
